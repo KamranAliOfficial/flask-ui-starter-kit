@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI/UX Project - About</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='scripts.js') }}" defer></script>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h1><a href="{{ url_for('home') }}">UI/UX Project</a></h1>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}" class="active">About</a></li>
+                <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                {% if session.username %}
+                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <section class="about">
+        <div class="container">
+            <h2>About This Project</h2>
+            <p>This project showcases a professionally designed frontend made with HTML, CSS, and JavaScript, backed by a powerful Flask (Python) backend. It demonstrates responsive design, clean code structure, and dynamic rendering using Jinja templates.</p>
+            <p>The goal of this UI/UX demo is to offer inspiration for developers building modern web applications, dashboards, portfolios, or AI-based tools using simple technologies.</p>
+            <h3>Technologies Used</h3>
+            <ul>
+                <li>✅ HTML5 + CSS3</li>
+                <li>✅ Python (Flask framework)</li>
+                <li>✅ Jinja templating</li>
+                <li>✅ SQLite database</li>
+                <li>✅ JavaScript for interactivity</li>
+                <li>✅ Responsive Design</li>
+            </ul>
+            <h3>Features</h3>
+            <ul>
+                <li>User authentication with secure password hashing</li>
+                <li>Contact form with server and client-side validation</li>
+                <li>Dynamic portfolio section</li>
+                <li>Admin dashboard for viewing submissions</li>
+                <li>RESTful API endpoint</li>
+                <li>Modern and responsive UI</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>© {{ year }} Kamran Ali - Designed with 💻 and ❤️</p>
+    </footer>
+</body>
+</html>

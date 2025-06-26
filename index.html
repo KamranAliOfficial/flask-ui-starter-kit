@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI/UX Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='scripts.js') }}" defer></script>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h1><a href="{{ url_for('home') }}">UI/UX Project</a></h1>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                {% if session.username %}
+                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h2>{{ welcome_message }}</h2>
+            <p>This is a beautiful AI-powered UI/UX project made using HTML, CSS, and Flask (Python).</p>
+            <a href="{{ url_for('contact') }}" class="button">Get In Touch</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <ul>
+                <li>⚡ Clean UI with responsive layout</li>
+                <li>🧠 Flask backend integration</li>
+                <li>📩 Contact form with validation</li>
+                <li>🌐 Dynamic routing</li>
+                <li>🔒 User authentication</li>
+                <li>📊 Dashboard for submissions</li>
+                <li>📸 Portfolio showcase</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>© {{ year }} Kamran Ali - All rights reserved.</p>
+    </footer>
+</body>
+</html>
